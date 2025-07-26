@@ -51,15 +51,15 @@ export function ObterIdadePonderada(): number {
 }
 
 export function ObterImcPonderado(rendaFamiliar: string): number {
-  const pesosPorRenda = {
-    1: [0.1, 0.3, 0.6],
-    2: [0.2, 0.4, 0.4],
-    3: [0.3, 0.4, 0.3],
-    4: [0.4, 0.4, 0.2],
-    5: [0.6, 0.3, 0.1],
+  const pesosPorRenda: Record<string, number[]> = {
+    "1": [0.1, 0.3, 0.6],
+    "2": [0.2, 0.4, 0.4],
+    "3": [0.3, 0.4, 0.3],
+    "4": [0.4, 0.4, 0.2],
+    "5": [0.6, 0.3, 0.1],
   };
 
-  const pesos = pesosPorRenda[rendaFamiliar] || [0.33, 0.33, 0.34];
+  const pesos = pesosPorRenda[rendaFamiliar] ?? [0.33, 0.33, 0.34];
   const imcValores = [1, 2, 3];
   const random = Math.random();
 
@@ -89,17 +89,17 @@ export function ObterColelitíase(genero: string): string {
 
 export function ObterDisfuncaoEretil(genero: string, idade: number): string {
   if (genero !== "M") {
-    return "0"; // so ocorre em homens
+    return "0";
   }
 
   let probabilidade = 0;
   if (idade < 40) {
     probabilidade = 0.05;
-  } else if (idade >= 40 && idade < 50) {
+  } else if (idade < 50) {
     probabilidade = 0.15;
-  } else if (idade >= 50 && idade < 60) {
+  } else if (idade < 60) {
     probabilidade = 0.25;
-  } else if (idade >= 60 && idade < 70) {
+  } else if (idade < 70) {
     probabilidade = 0.4;
   } else {
     probabilidade = 0.6;
@@ -113,7 +113,7 @@ export function ObterSindromeDoOvarioPolicistico(
   idade: number
 ): string {
   if (genero !== "F") {
-    return "0"; // só ocorre em mulheres
+    return "0";
   }
 
   if (idade < 15 || idade > 49) {

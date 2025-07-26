@@ -19,7 +19,7 @@ import {
   ObterAnsiedade,
   ObterDiabetesTipo2,
   ObterOsteoartriteIncapacitante,
-} from "./Utils";
+} from "./Utils/index.js";
 
 export class Pacient {
   private id: string;

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { Pacient } from "./Paciente";
+import { Pacient } from "./Paciente.js";
 
 function gerarCsv(nomeArquivo: string, quantidadeRegistros: number): void {
   const pastaAssets = "assets";
@@ -24,4 +24,4 @@ function gerarCsv(nomeArquivo: string, quantidadeRegistros: number): void {
   );
 }
 
-gerarCsv("dados.csv", 50);
+gerarCsv("dados.csv", 500000);

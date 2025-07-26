@@ -1,0 +1,4 @@
+node_modules
+tsconfig.json
+assets/dados.csv
+assets/fila_ordenada.csv
